@@ -1,9 +1,13 @@
-import static org.junit.Assert.*;
+
+
+
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import com.gaurav.tdd.SimpleInterestCalculator;
+
+
 
 public class SimpleInterestCalculatorTest {
 
@@ -19,5 +23,32 @@ public class SimpleInterestCalculatorTest {
 				
 		Assert.assertEquals(expectedOutput, actualInterest, 0.1);
 	}
+	
+	@Test
+	public void calculate_interestShouldBe5Point2IncaseDaysAreLessThan365Days(){
+		//Arrange
+		int principalAmount =6100;
+		int tenureInDays = 350;
+		double expectedInterestAmount =304.16;
+		
+		// Act
+		double actualInterest = SimpleInterestCalculator.calculate(principalAmount, tenureInDays);
+		// Assert
+		Assert.assertEquals(expectedInterestAmount, actualInterest,1);	
+	}
+	
+	@Test
+	public void calculate_seniorCitizenTenureLessThanYear(){
+		//Arrange
+		int principalAmount =6100;
+		int tenureInDays = 350;
+		double expectedInterestAmount =310.01;
+		
+		// Act
+		double actualInterest = SimpleInterestCalculator.calculate(principalAmount, tenureInDays, 61);
+		// Assert
+		Assert.assertEquals(expectedInterestAmount, actualInterest,1);	
+	}
+	
 
 }
