@@ -50,5 +50,28 @@ public class SimpleInterestCalculatorTest {
 		Assert.assertEquals(expectedInterestAmount, actualInterest,1);	
 	}
 	
+	@Test
+	public void calculate_SimpleInterestForSeniorCitizenWhenTenureIsMoreThanYear(){
+		//Arrange
+		int principalAmount =6100;
+		int tenureInDays = 370;
+		double expectedInterestAmount =333.91;
+		
+		// Act
+		double actualInterest = SimpleInterestCalculator.calculate(principalAmount, tenureInDays, 61);
+		// Assert
+		Assert.assertEquals(expectedInterestAmount, actualInterest,1);	
+	}
+	
+	@Test (expected = RuntimeException.class)
+	public void calculate_shouldThrowExceptionIfAmountGreaterFiveLacAndTenureLessThanTwoYears() {
+		int principalAmount =500001;
+		int tenureInDays = 370;
+		double expectedInterestAmount =333.91;
+		
+		// Act
+		double actualInterest = SimpleInterestCalculator.calculate(principalAmount, tenureInDays, 61);
+		
+	}
 
 }

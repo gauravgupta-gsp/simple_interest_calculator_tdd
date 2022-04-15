@@ -33,6 +33,9 @@ public class SimpleInterestCalculator {
 		if(seniorCitizen(age)) {
 			rateOfInterest += 0.1;
 		}
+		if(principalAmount >500000 && tenureInDays <730) {
+			throw new RuntimeException("");
+		}
 		 
 		return calculateSimpleInterest(principalAmount, rateOfInterest, tenureInyears);
 		
